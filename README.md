@@ -12,7 +12,7 @@ input&emsp;&emsp;input in format of "100 eur to usd"
 
 #### options
 
--h, --help&emsp;&emsp;show help message
+-h, --help&emsp;&emsp;show help message<br>
 -l, --list&emsp;&emsp;return list of available currencies
 
 ### Windows
