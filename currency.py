@@ -1,5 +1,8 @@
-import re, sys, argparse
-import requests as rq
+import re
+import os
+import sys
+import argparse
+import requests
 
 available_currencies = {
     'AED': 'UAE Dirham',
@@ -188,9 +191,9 @@ class CurrencyApp:
         self.target_currency = match.group(3).upper()  
 
     def send_api_request(self) -> float:
-        api_key = 'ea8cf87c058c013269d82e35'
+        api_key = os.getenv('CURRENCY_API_KEY')
         url = f'https://v6.exchangerate-api.com/v6/{api_key}/latest/{self.current_currency}'
-        response = rq.api.get(url).json()
+        response = requests.api.get(url).json()
         
         multiplier = response['conversion_rates'][self.target_currency]
         result = round(self.count * multiplier, 2)
